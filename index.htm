@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Card</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background: #f3f3f3;
+            display: flex;
+            justify-content: flex-start;
+            margin: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 200px;
+            margin-bottom: -20px;
+            margin-left: 540px;
+            margin-right: auto;
+        }
+        .weather-card{
+            background: #220e72;
+            color: #fff;
+            width: 320px;
+            padding: 20px 20px 15px 20px;
+            border-radius: 25px 25px 25px 25px;
+            /* sligh rotation and skew */
+            transform: skew(-8deg) rotate(-3deg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .weather-card .temp{
+            font-size: 64px;
+            font-weight: 200;
+            transform: skew(8deg)rotate(3deg);
+        }
+        .wather-card .degree-symbol{
+            font-size: 40px;
+            vertical-align: top;
+        }
+        .weather-card .high-low{
+            color: #9c6caa;
+            font-size: 15px;
+            margin-top: -5px;
+            font-weight: 300;
+            transform: skew(8deg) rotate(3deg);
+        }
+        .weather-card .location{
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+            display: inline-block;
+            transform: skew(8deg) rotate(3deg);
+        }
+        .weather-card .condition{
+            float: right;
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 300;
+            transform: skew(8deg) rotate(3deg);
+        }
+        /* weather icon container */
+        .weather-icon{
+            position: absolute;
+            top: -30px;
+            right: 10px;
+            width: 70px;
+            min-height: 70px;
+            transform: skew(8deg) rotate(3deg);
+        }
+        /* Cloud */
+        .cloud{
+            position: relative;
+            width: 55px;
+            height: 35px;
+            background: #e0e0e0;
+            border-radius: 25px;
+            margin-bottom: 5px;
+            box-shadow: 25px 10px 0 0 #e0e0e0, 15px -10px 0 0 #e0e0e0;
+        }
+        .cloud::before{
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 12px;
+            width: 30px;
+            min-height: 30px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            box-shadow: 20px 8px 0 0 #e0e0e0;
+        }
+        /* lIGHTING BOLT */
+        .lighting{
+            position: absolute;
+            bottom: 0;
+            left: 45px;
+            width: 15px;
+            height: 35px;
+            background: #fdb732;
+            clip-path: polygon(
+                40% 0%,
+                60% 0%,
+                30% 40%,
+                55% 40%,
+                20% 100%,
+                40% 55%,
+                15% 55%
+            );
+            filter: drop-shadow(1px 1px 1px #bb6f00);
+        }
+        /* Raindrops */
+        .raindrop{
+            position: absolute;
+            width: 8px;
+            height: 15px;
+            background: #2a7db1;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: drop 1.5s infinite;
+        }
+        .raindrop:nth-child(1) {
+            top: 45px;
+            left: 18px;
+            animation-delay: 0s;
+        }
+         .raindrop:nth-child(2) {
+            top: 48px;
+            left: 25px;
+            animation-delay: 0.3s;
+        }
+         .raindrop:nth-child(3) {
+            top: 45px;
+            left: 35px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes drop {
+            0%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100%{
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-card">
+        <div class="temp">
+            24 <span class="degree-symbol">°</span>
+        </div>
+        <div class="high-low">H:32° L: 16°</div>
+        <div class="location">Kathmandu, Nepal</div>
+        <div class="condition">Mid Rain</div>
+        <div class="weather-icon">
+            <div class="cloud"></div>
+            <div class="lighting"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+        </div>
+    </div>
+</body>
+</html>
